@@ -7,6 +7,288 @@
     <groupId>com.xiayuan.sparkProject</groupId>
     <artifactId>sparkProject</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <spark.version>2.1.1</spark.version>
+        <scala.version>2.11</scala.version>
+    </properties>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+            <!--添加snappy-java,解决压缩报错问题-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.xerial.snappy</groupId>
+                    <artifactId>snappy-java</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <!--添加snappy-java的jar包，解决java.lang.UnsatisfiedLinkError: no snappyjava in java.library.path的报错问题-->
+        <dependency>
+            <groupId>org.xerial.snappy</groupId>
+            <artifactId>snappy-java</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.hadoop</groupId>-->
+<!--            <artifactId>hadoop-kafka</artifactId>-->
+<!--            <version>3.1.1</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.hadoop</groupId>-->
+<!--            <artifactId>hadoop-mapreduce</artifactId>-->
+<!--            <version>2.7.2</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-streaming</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+
+
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-streaming-kafka_${scala.version}</artifactId>-->
+<!--            <version>2.1.1</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.27</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.6.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.6.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.6.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.55</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-8_2.11</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/it.unimi.dsi/fastutil -->
+<!--        <dependency>-->
+<!--                <groupId>it.unimi.dsi</groupId>-->
+<!--                <artifactId>fastutil</artifactId>-->
+<!--                <version>7.2.0</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-sql_2.10</artifactId>-->
+<!--            <version>1.5.1</version>-->
+<!--        </dependency>-->
+
+
+    </dependencies>
+
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>3.8.1</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-core_2.10</artifactId>-->
+<!--            <version>1.5.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-sql_2.10</artifactId>-->
+<!--            <version>1.5.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-hive_2.10</artifactId>-->
+<!--            <version>1.5.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-streaming_2.10</artifactId>-->
+<!--            <version>1.5.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.hadoop</groupId>-->
+<!--            <artifactId>hadoop-client</artifactId>-->
+<!--            <version>2.4.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.spark</groupId>-->
+<!--            <artifactId>spark-streaming-kafka_2.10</artifactId>-->
+<!--            <version>1.5.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <version>5.1.27</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.json</groupId>-->
+<!--            <artifactId>json</artifactId>-->
+<!--            <version>20090211</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-core</artifactId>-->
+<!--            <version>2.4.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-databind</artifactId>-->
+<!--            <version>2.4.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+<!--            <artifactId>jackson-annotations</artifactId>-->
+<!--            <version>2.4.3</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>fastjson</artifactId>-->
+<!--            <version>1.2.55</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fastutil</groupId>-->
+<!--            <artifactId>fastutil</artifactId>-->
+<!--            <version>5.0.9</version>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/main/test</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass></mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <includeProjectDependencies>true</includeProjectDependencies>
+                    <includePluginDependencies>false</includePluginDependencies>
+                    <classpathScope>compile</classpathScope>
+                    <mainClass>com.ibeifeng.sparkproject.App</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 
 </project>
